@@ -30,7 +30,8 @@ import org.apache.camel.impl.DefaultHeaderFilterStrategy;
 import org.apache.camel.spi.HeaderFilterStrategy;
 import org.apache.camel.spi.HeaderFilterStrategyAware;
 import org.apache.camel.util.ObjectHelper;
-import org.jivesoftware.smack.AccountManager;
+import org.jivesoftware.smack.AbstractXMPPConnection;
+import org.jivesoftware.smackx.iqregister.AccountManager;
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
@@ -65,7 +66,7 @@ public class XmppEndpoint extends DefaultEndpoint implements HeaderFilterStrateg
     private String participant;
     private String nickname;
     private String serviceName;
-    private XMPPConnection connection;
+    private AbstractXMPPConnection connection;
     private boolean testConnectionOnStartup = true;
     private int connectionPollDelay = 10;
 
@@ -131,7 +132,7 @@ public class XmppEndpoint extends DefaultEndpoint implements HeaderFilterStrateg
         return true;
     }
 
-    public synchronized XMPPConnection createConnection() throws XMPPException, SmackException, IOException {
+    public synchronized AbstractXMPPConnection createConnection() throws XMPPException, SmackException, IOException {
 
         if (connection != null && connection.isConnected()) {
             return connection;

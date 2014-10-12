@@ -23,12 +23,12 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.impl.DefaultConsumer;
 import org.apache.camel.util.URISupport;
+import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.ChatManagerListener;
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.PacketListener;
-import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException.XMPPErrorException;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Packet;
@@ -48,7 +48,7 @@ public class XmppConsumer extends DefaultConsumer implements PacketListener, Mes
     private MultiUserChat muc;
     private Chat privateChat;
     private ChatManager chatManager;
-    private XMPPConnection connection;
+    private AbstractXMPPConnection connection;
     private ScheduledExecutorService scheduledExecutor;
 
     public XmppConsumer(XmppEndpoint endpoint, Processor processor) {

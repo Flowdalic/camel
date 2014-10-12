@@ -52,7 +52,7 @@
     </dependency>
     <dependency>
       <groupId>org.igniterealtime.smack</groupId>
-      <artifactId>smack-resolver-javax</artifactId>
+      <artifactId>smack-java7</artifactId>
       <version>${smack-version}</version>
     </dependency>
     <dependency>
